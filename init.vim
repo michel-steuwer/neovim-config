@@ -563,12 +563,14 @@ autocmd Filetype html setlocal ts=2 sw=2 expandtab
 
 
 " ocaml
-" Add Merlin to rtp
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
+if exists('opam')
+  " Add Merlin to rtp
+  let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+  execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
-" Set Merlin as Syntastic checker for OCaml
-let g:syntastic_ocaml_checkers = ['merlin']
+  " Set Merlin as Syntastic checker for OCaml
+  let g:syntastic_ocaml_checkers = ['merlin']
+endif
 
 
 " python

@@ -47,7 +47,13 @@ let g:airline_theme='onedark'
 "*****************************************************************************
 "" Shell for terminal emulation
 "*****************************************************************************
-set shell=/usr/local/bin/zsh
+if exists('/usr/bin/zsh')
+  set shell=/usr/bin/zsh
+endif
+
+if exists('/usr/local/bin/zsh')
+  set shell=/usr/local/bin/zsh
+endif
 
 "*****************************************************************************
 "" Environment variables
